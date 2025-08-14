@@ -1,0 +1,20 @@
+.{
+    .name = .tones,
+    .version = "0.0.0",
+    .fingerprint = 0x3afa0f09ffed9034,
+    .minimum_zig_version = "0.14.1",
+
+    .dependencies = .{
+        .lightmix = .{
+            .url = "https://github.com/haruki7049/lightmix/archive/fb11687bd48b6d63dc1249cf4ec8e00b5a6d98e1.tar.gz",
+            .hash = "lightmix-0.0.0-SpCovNObAQA5tpZ-MhNXzPvEm5Rjwj4FqQFkA-3I-MFb",
+        },
+    },
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "LICENSE",
+    },
+}
