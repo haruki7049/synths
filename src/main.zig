@@ -11,10 +11,11 @@ const c_4: f32 = 261.626;
 const c_5: f32 = 523.251;
 
 pub fn main() !void {
-    const result: Wave = try tones.SynthSounds.Sine.generate(.{
+    const result: Wave = try tones.SynthSounds.Square.generate(.{
         .frequency = c_3,
         .amplitude = 1.0,
         .length = 44100,
+        .sharpness = 5.0,
         .allocator = allocator,
 
         .sample_rate = 44100,
