@@ -11,7 +11,9 @@ const c_4: f32 = 261.626;
 const c_5: f32 = 523.251;
 
 pub fn main() !void {
-    const result: Wave = synths.SynthSounds.Soundless.generate(.{
+    const result: Wave = synths.SynthSounds.Sine.generate(.{
+        .frequency = c_4,
+        .amplitude = 1.0,
         .length = 44100,
         .allocator = allocator,
 
@@ -25,6 +27,8 @@ pub fn main() !void {
     defer file.close();
 
     try result.write(file);
+
+    try result.debug_play();
 }
 
 fn decay(original_wave: Wave) !Wave {

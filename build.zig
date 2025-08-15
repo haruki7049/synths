@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     // Dependencies
-    const lightmix = b.dependency("lightmix", .{});
+    const lightmix = b.dependency("lightmix", .{ .with_debug_features = true });
 
     // Library module declaration
     const lib_mod = b.addModule("synths", .{
@@ -29,6 +29,9 @@ pub fn build(b: *std.Build) void {
         .name = "synths",
         .root_module = exe_mod,
     });
+    exe.linkLibC();
+    exe.linkSystemLibrary("portaudio-2.0");
+    exe.linkSystemLibrary("sndfile");
     b.installArtifact(exe);
 
     // Rum cmd
