@@ -11,10 +11,10 @@ const c_4: f32 = 261.626;
 const c_5: f32 = 523.251;
 
 pub fn main() !void {
-    const result: Wave = try tones.Drum.Bass.generate(.{
+    const result: Wave = tones.Drum.Bass.generate(.{
         .allocator = allocator,
         .volume = 1.0,
-        .length = 11025,
+        .length = 44100,
 
         .sample_rate = 44100,
         .channels = 1,

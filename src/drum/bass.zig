@@ -12,11 +12,11 @@ const GenerateOptions = struct {
     bits: usize,
 };
 
-pub fn generate(options: GenerateOptions) !Wave {
+pub fn generate(options: GenerateOptions) Wave {
     const data: []f32 = generate_data(options);
     defer options.allocator.free(data);
 
-    const result: Wave = try Wave.init(data[0..], options.allocator, .{
+    const result: Wave = Wave.init(data[0..], options.allocator, .{
         .sample_rate = options.sample_rate,
         .channels = options.channels,
         .bits = options.bits,
