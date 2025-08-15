@@ -27,8 +27,8 @@ pub fn generate(options: GenerateOptions) !Wave {
 fn generate_data(options: GenerateOptions) []f32 {
     const sample_rate: f32 = @floatFromInt(options.sample_rate);
     const total_samples: usize = 33075;
-    const base_freq: f32 = 60.0; // 最終の低い周波数
-    const start_freq: f32 = 120.0; // アタック時の周波数
+    const base_freq: f32 = 30.0; // 最終の低い周波数
+    const start_freq: f32 = 60.0; // アタック時の周波数
 
     var result: []f32 = options.allocator.alloc(f32, 44100) catch |err| {
         std.debug.print("{any}\n", .{err});
@@ -47,7 +47,7 @@ fn generate_data(options: GenerateOptions) []f32 {
         const amp = std.math.exp(-t * 8.0);
 
         // サイン波本体
-        result[i] = std.math.sin(phase) * amp * options.volume;
+        result[i] = std.math.sin(phase) * amp * options.volume * 2.0;
     }
 
     // 残りはゼロで埋める（全体配列長は44100固定のため）
