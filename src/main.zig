@@ -14,6 +14,7 @@ pub fn main() !void {
     const result: Wave = try tones.Drum.Bass.generate(.{
         .allocator = allocator,
         .volume = 1.0,
+        .length = 11025,
 
         .sample_rate = 44100,
         .channels = 1,
