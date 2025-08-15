@@ -1,7 +1,7 @@
 .{
-    .name = .tones,
+    .name = .synths,
     .version = "0.0.0",
-    .fingerprint = 0x3afa0f09ffed9034,
+    .fingerprint = 0x249fdde78fa7d74b,
     .minimum_zig_version = "0.14.1",
 
     .dependencies = .{

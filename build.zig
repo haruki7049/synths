@@ -22,11 +22,11 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
     exe_mod.addImport("lightmix", lightmix.module("lightmix"));
-    exe_mod.addImport("tones", lib_mod);
+    exe_mod.addImport("synths", lib_mod);
 
     // Executable
     const exe = b.addExecutable(.{
-        .name = "tones",
+        .name = "synths",
         .root_module = exe_mod,
     });
     b.installArtifact(exe);
